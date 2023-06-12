@@ -6,7 +6,7 @@ const app = express();
 const PORT = 4777;
 const hbs = require('hbs');
 const passport = require('passport');
-// const users = require('./database/data');
+const users = require('./models/users')
 const routes = require('./routes/login')
 const session = require("express-session");
 
@@ -40,14 +40,17 @@ app.use(session({
 
 
 /// request portion starts from here
-
-app.get('/', routes);   
+app.get('/' , (req,res)=>{
+  res.render('login');
+})
+app.use('/login' , routes);  
+app.use('/signup' , require('./routes/signup'))
 
 // app.post('/home' , (req,res)=>{
 //     res.send('home')
 // })
 
-mongoose.connect('mongodb://localhost:27017')
+mongoose.connect('mongodb://localhost:27017/test')
 .then(()=>{
     app.listen(PORT  ,()=>{
         console.log('http://localhost:'+PORT);

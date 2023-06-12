@@ -10,7 +10,10 @@
     <section class="navbar"></section>
     <div class="navbar">
         <div class="imageLogo">
-            Youre redirect to home!!
+            <h3>Welcome</h3> <br>
+             {{#each data as |d|}}
+            <li>{{d.username}}</li>
+        {{/each}}
         </div>
     </div>
 </body>

@@ -1,23 +1,11 @@
 const express =require('express');
 const path = require('path');
 const router = express.Router();
-const passport = require('../auth/passport');
-
-router.get('/' ,(req,res,)=>{
-  res.render('login')
-
-})
-
-router.get('/profile' , (req,res,next)=>{
-      res.send('profile page')   
-});
+// const passport = require('../auth/passport');
+// const users = require('../models/users');
+const loginController = require('../controller/login')
 
 
-router.get('/signup' , (req,res)=>{
-  res.render('signup');
-})
+router.post('/' , loginController.userLogin);
 
-router.get('/home' , (req,res)=>{
-  res.render('home');
-})
 module.exports = router;
