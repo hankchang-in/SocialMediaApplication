@@ -41,10 +41,11 @@ app.use(session({
 
 /// request portion starts from here
 app.get('/' , (req,res)=>{
-  res.render('login');
+  res.render('test');
 })
 app.use('/login' , routes);  
 app.use('/signup' , require('./routes/signup'))
+app.use('/post' , require('./routes/post'));
 
 // app.post('/home' , (req,res)=>{
 //     res.send('home')
